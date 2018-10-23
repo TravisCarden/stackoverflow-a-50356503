@@ -3,7 +3,7 @@ services:
         autowire: true
 
     App\:
-        resource: '../app'
+        resource: '../src'
 
     Symfony\Component\Console\Application:
         public: true

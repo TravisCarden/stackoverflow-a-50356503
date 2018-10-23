@@ -8,12 +8,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class TestCommand extends Command
 {
-
     protected static $defaultName = 'test';
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('Hello world.');
     }
-
 }
