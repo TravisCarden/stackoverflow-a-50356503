@@ -36,12 +36,12 @@ final class AppKernel extends Kernel
             {
                 $applicationDefinition = $containerBuilder->findDefinition(Application::class);
 
-                foreach ($containerBuilder->getDefinitions() as $name => $definition) {
+                foreach ($containerBuilder->getDefinitions() as $definition) {
                     if (! is_a($definition->getClass(), Command::class, true)) {
                         continue;
                     }
 
-                    $applicationDefinition->addMethodCall('add', [new Reference($name)]);
+                    $applicationDefinition->addMethodCall('add', [new Reference($definition->getClass())]);
                 }
             }
         };
