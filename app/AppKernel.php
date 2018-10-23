@@ -31,7 +31,6 @@ final class AppKernel extends Kernel
     {
         return new class implements CompilerPassInterface
         {
-
             public function process(ContainerBuilder $containerBuilder)
             {
                 $applicationDefinition = $containerBuilder->findDefinition(Application::class);
