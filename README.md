@@ -6,24 +6,22 @@ It currently yields the following result:
 ```
 $ composer install
 $ ./index.php
-PHP Fatal error:  Uncaught Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException: You have requested a non-existent service "Symfony\Component\Console\Application". in /var/www/test/vendor/symfony/dependency-injection/ContainerBuilder.php:1011
+PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Symfony\Component\Console\Application::add() must be an instance of Symfony\Component\Console\Command\Command, string given, called in /var/www/test/app/cache/dev/ContainerRZsNBWJ/getApplicationService.php on line 11 and defined in /var/www/test/vendor/symfony/console/Application.php:455
 Stack trace:
-#0 /var/www/test/app/AppKernel.php(23): Symfony\Component\DependencyInjection\ContainerBuilder->getDefinition('Symfony\\Compone...')
-#1 /var/www/test/vendor/symfony/http-kernel/Kernel.php(647): App\AppKernel->build(Object(Symfony\Component\DependencyInjection\ContainerBuilder))
-#2 /var/www/test/vendor/symfony/http-kernel/Kernel.php(616): Symfony\Component\HttpKernel\Kernel->prepareContainer(Object(Symfony\Component\DependencyInjection\ContainerBuilder))
-#3 /var/www/test/vendor/symfony/http-kernel/Kernel.php(514): Symfony\Component\HttpKernel\Kernel->buildContainer()
-#4 /var/www/test/vendor/symfony/http- in /var/www/test/vendor/symfony/dependency-injection/ContainerBuilder.php on line 1011
+#0 /var/www/test/app/cache/dev/ContainerRZsNBWJ/getApplicationService.php(11): Symfony\Component\Console\Application->add('@App\\Command\\Te...')
+#1 /var/www/test/app/cache/dev/ContainerRZsNBWJ/appDevProjectContainer.php(72): require('/Users/travis.c...')
+#2 /var/www/test/vendor/symfony/dependency-injection/Container.php(240): ContainerRZsNBWJ\appDevProjectContainer->load('getApplicationS...')
+#3 /var/www/test/vendor/symfony/dependency-injection/Container.php(222): Symfony\Component\DependencyInjection\Container->make(' in /var/www/test/vendor/symfony/console/Application.php on line 455
 
-Fatal error: Uncaught Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException: You have requested a non-existent service "Symfony\Component\Console\Application". in /var/www/test/vendor/symfony/dependency-injection/ContainerBuilder.php on line 1011
+Fatal error: Uncaught TypeError: Argument 1 passed to Symfony\Component\Console\Application::add() must be an instance of Symfony\Component\Console\Command\Command, string given, called in /var/www/test/app/cache/dev/ContainerRZsNBWJ/getApplicationService.php on line 11 and defined in /var/www/test/vendor/symfony/console/Application.php on line 455
 
-Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException: You have requested a non-existent service "Symfony\Component\Console\Application". in /var/www/test/vendor/symfony/dependency-injection/ContainerBuilder.php on line 1011
+TypeError: Argument 1 passed to Symfony\Component\Console\Application::add() must be an instance of Symfony\Component\Console\Command\Command, string given, called in /var/www/test/app/cache/dev/ContainerRZsNBWJ/getApplicationService.php on line 11 in /var/www/test/vendor/symfony/console/Application.php on line 455
 
 Call Stack:
-    0.0003     355584   1. {main}() /var/www/test/index.php:0
-    0.0035     645968   2. App\AppKernel->boot() /var/www/test/index.php:10
-    0.0035     645968   3. App\AppKernel->initializeContainer() /var/www/test/vendor/symfony/http-kernel/Kernel.php:123
-    0.0039     676352   4. App\AppKernel->buildContainer() /var/www/test/vendor/symfony/http-kernel/Kernel.php:514
-    0.0089    1190968   5. App\AppKernel->prepareContainer() /var/www/test/vendor/symfony/http-kernel/Kernel.php:616
-    0.0089    1190968   6. App\AppKernel->build() /var/www/test/vendor/symfony/http-kernel/Kernel.php:647
-    0.0089    1190968   7. Symfony\Component\DependencyInjection\ContainerBuilder->getDefinition() /var/www/test/app/AppKernel.php:23
+    0.0007     355808   1. {main}() /var/www/test/index.php:0
+    0.0847    3873024   2. ContainerRZsNBWJ\appDevProjectContainer->get() /var/www/test/index.php:13
+    0.0847    3873024   3. ContainerRZsNBWJ\appDevProjectContainer->make() /var/www/test/vendor/symfony/dependency-injection/Container.php:222
+    0.0847    3873400   4. ContainerRZsNBWJ\appDevProjectContainer->load() /var/www/test/vendor/symfony/dependency-injection/Container.php:240
+    0.0849    3874648   5. require('/var/www/test/app/cache/dev/ContainerRZsNBWJ/getApplicationService.php') /var/www/test/app/cache/dev/ContainerRZsNBWJ/appDevProjectContainer.php:72
+    0.0854    3895696   6. Symfony\Component\Console\Application->add() /var/www/test/app/cache/dev/ContainerRZsNBWJ/getApplicationService.php:11
 ```
